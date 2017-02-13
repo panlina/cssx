@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src=bower_components/jquery/dist/jquery.js></script>
+	<script src=cssx.js></script>
+</head>
+<body>
+	<div id=div></div>
+	<script>
+		cssx({ "#div": 42 })($('body'));
+		$("#div").text($("#div").data("cssx"));
+	</script>
+</body>
+</html>
