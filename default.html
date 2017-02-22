@@ -3,13 +3,23 @@
 <head>
 	<title></title>
 	<script src=bower_components/jquery/dist/jquery.js></script>
+	<script src=bower_components/specificity/specificity.js></script>
 	<script src=cssx.js></script>
 </head>
 <body>
-	<div id=div></div>
+	<div id=d></div>
+	<div id=e></div>
+	<div id=f class=x></div>
 	<script>
-		cssx([{ selector: "#div", style: 42 }])($('body'));
-		$("#div").text($("#div").data("cssx"));
+		var sheet = [
+			{ selector: "div", style: 42 },
+			{ selector: "div.x", style: 26 },
+			{ selector: "#d", style: 12 }
+		];
+		cssx(sheet)($('body'));
+		$("#d").text($("#d").data("cssx"));
+		$("#e").text($("#e").data("cssx"));
+		$("#f").text($("#f").data("cssx"));
 	</script>
 </body>
 </html>

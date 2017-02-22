@@ -14,6 +14,7 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery": "*"
+    "jquery": "*",
+    "specificity": "*"
   }
 }
