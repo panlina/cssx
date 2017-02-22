@@ -15,6 +15,6 @@
   ],
   "dependencies": {
     "jquery": "*",
-    "specificity": "*"
+    "specificity": "https://github.com/keeganstreet/specificity.git"
   }
 }
