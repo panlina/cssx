@@ -8,7 +8,7 @@
 <body>
 	<div id=div></div>
 	<script>
-		cssx({ "#div": 42 })($('body'));
+		cssx([{ selector: "#div", style: 42 }])($('body'));
 		$("#div").text($("#div").data("cssx"));
 	</script>
 </body>

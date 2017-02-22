@@ -1,6 +1,8 @@
 function cssx(cssx) {
 	return function (element) {
-		for (var selector in cssx)
-			element.children(selector).data('cssx', cssx[selector]);
+		for (var i in cssx) {
+			var rule = cssx[i];
+			element.children(rule.selector).data('cssx', rule.style);
+		}
 	};
 }
