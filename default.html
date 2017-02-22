@@ -12,14 +12,14 @@
 	<div id=f class=x></div>
 	<script>
 		var sheet = [
-			{ selector: "div", style: 42 },
-			{ selector: "div.x", style: 26 },
-			{ selector: "#d", style: 12 }
+			{ selector: "div", style: { i: 42 } },
+			{ selector: "div.x", style: { i: 26, x: true } },
+			{ selector: "#d", style: { y: false } }
 		];
 		cssx(sheet)($('body'));
-		$("#d").text($("#d").data("cssx"));
-		$("#e").text($("#e").data("cssx"));
-		$("#f").text($("#f").data("cssx"));
+		$("#d").text(JSON.stringify($("#d")[0].cssx));
+		$("#e").text(JSON.stringify($("#e")[0].cssx));
+		$("#f").text(JSON.stringify($("#f")[0].cssx));
 	</script>
 </body>
 </html>

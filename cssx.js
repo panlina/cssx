@@ -23,7 +23,10 @@ function cssx(cssx) {
 			rule.sort(function (r, s) {
 				return SPECIFICITY.compare(r.selector, s.selector);
 			});
-			$(elementrule[id].element).data('cssx', rule[rule.length - 1].style);
+			var style = rule.map(function (rule) { return rule.style; });
+			style.unshift({});
+			var style = $.extend.apply(undefined, style);
+			elementrule[id].element.cssx = style;
 		}
 	};
 }
