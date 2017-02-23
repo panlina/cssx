@@ -5,17 +5,28 @@
 	<script src=bower_components/jquery/dist/jquery.js></script>
 	<script src=bower_components/specificity/specificity.js></script>
 	<script src=cssx.js></script>
+	<script src=parse.js></script>
 </head>
 <body>
 	<div id=d></div>
 	<div id=e></div>
 	<div id=f class=x></div>
+	<style id=s>
+		div {
+			"i": 42
+		}
+
+		div.x {
+			"i": 26,
+			"x": true
+		}
+
+		#d {
+			"y": false
+		}
+	</style>
 	<script>
-		var sheet = [
-			{ selector: "div", style: { i: 42 } },
-			{ selector: "div.x", style: { i: 26, x: true } },
-			{ selector: "#d", style: { y: false } }
-		];
+		var sheet = cssx.parse(document.getElementById('s').innerHTML);
 		var elementrule = cssx(sheet)($('body'));
 		for (var id in elementrule)
 			$(elementrule[id].element).text(JSON.stringify(elementrule[id].style));
