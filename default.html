@@ -16,10 +16,9 @@
 			{ selector: "div.x", style: { i: 26, x: true } },
 			{ selector: "#d", style: { y: false } }
 		];
-		cssx(sheet)($('body'));
-		$("#d").text(JSON.stringify($("#d")[0].cssx));
-		$("#e").text(JSON.stringify($("#e")[0].cssx));
-		$("#f").text(JSON.stringify($("#f")[0].cssx));
+		var elementrule = cssx(sheet)($('body'));
+		for (var id in elementrule)
+			$(elementrule[id].element).text(JSON.stringify(elementrule[id].style));
 	</script>
 </body>
 </html>

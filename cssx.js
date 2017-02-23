@@ -26,7 +26,8 @@ function cssx(cssx) {
 			var style = rule.map(function (rule) { return rule.style; });
 			style.unshift({});
 			var style = $.extend.apply(undefined, style);
-			elementrule[id].element.cssx = style;
+			elementrule[id].style = style;
 		}
+		return elementrule;
 	};
 }
