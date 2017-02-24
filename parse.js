@@ -17,9 +17,16 @@ cssx.parse = function (text) {
 	}
 	function parseStyle() {
 		var i0 = i;
+		var depth = 0;
 		i++;
-		while (!isSpace(text[i]) || text[i + 1] != '}') i++;
-		i++, i++;
+		while (text[i] != '}' || depth) {
+			if (text[i] == '{')
+				depth++;
+			if (text[i] == '}')
+				depth--;
+			i++;
+		}
+		i++;
 		var style = text.substr(i0, i - i0);
 		return JSON.parse(style);
 	}
