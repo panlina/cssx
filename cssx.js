@@ -4,7 +4,7 @@ function cssx(cssx) {
 			cssx.map(function (rule) {
 				return {
 					rule: rule,
-					element: element.children(rule.selector)
+					element: element.find(rule.selector)
 				};
 			});
 		var elementrule = {};
