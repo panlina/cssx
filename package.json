@@ -1,4 +1,7 @@
 {
   "name": "cssx",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "devDependencies": {
+    "gulp-concat": "^2.6.1"
+  }
 }
