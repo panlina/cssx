@@ -24,10 +24,17 @@ function cssx(cssx) {
 				return SPECIFICITY.compare(r.selector, s.selector);
 			});
 			var style = rule.map(function (rule) { return rule.style; });
-			style.unshift({});
-			var style = $.extend.apply(undefined, style);
+			var style = extend.apply({}, style);
 			elementrule[id].style = style;
 		}
 		return elementrule;
 	};
+	function extend() {
+		for (var i in arguments) {
+			var argument = arguments[i];
+			for (var j in argument)
+				this[j] = argument[j];
+		}
+		return this;
+	}
 }
