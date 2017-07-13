@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title></title>
-	<script src=bower_components/jquery/dist/jquery.js></script>
-	<script src=bower_components/specificity/specificity.js></script>
-	<script src=dist/cssx.js></script>
+	<script src=node_modules/jquery/dist/jquery.js></script>
+	<script src=node_modules/specificity/specificity.js></script>
+	<script src=cssx.browser.js></script>
 </head>
 <body>
 	<div id=d></div>
@@ -25,6 +25,7 @@
 		}
 	</style>
 	<script>
+		var cssx = require('cssx');
 		var sheet = cssx.parse(document.getElementById('s').innerHTML);
 		var elementrule = cssx(sheet)($('body'));
 		for (var id in elementrule)

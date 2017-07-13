@@ -1,3 +1,4 @@
+var SPECIFICITY = require('specificity');
 function cssx(cssx) {
 	return function (element) {
 		var ruleelement =
@@ -38,3 +39,5 @@ function cssx(cssx) {
 		return this;
 	}
 }
+cssx.parse = require('./parse.js');
+module.exports = cssx;

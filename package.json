@@ -1,7 +1,22 @@
 {
   "name": "cssx",
   "version": "0.0.0",
+  "homepage": "https://github.com/panlina/cssx",
+  "author": "Jack Lu <jacklu@jacklu.me>",
+  "dependencies": {
+    "specificity": "^0.3.1"
+  },
   "devDependencies": {
-    "gulp-concat": "^2.6.1"
+    "browserify": "^14.4.0",
+    "browserify-shim": "^3.8.14"
+  },
+  "scripts": {
+    "build": "browserify -r ./index.js:cssx index.js > cssx.browser.js"
+  },
+  "browserify": {
+    "transform": [ "browserify-shim" ]
+  },
+  "browserify-shim": {
+    "specificity": "global:SPECIFICITY"
   }
 }

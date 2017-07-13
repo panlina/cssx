@@ -1,4 +1,4 @@
-cssx.parse = function (text) {
+function parse(text) {
 	var sheet = [];
 	for (var i = 0; ;) {
 		parseSpace();
@@ -41,3 +41,4 @@ cssx.parse = function (text) {
 		return c == ' ' || c == '\t' || c == '\n';
 	}
 };
+module.exports = parse;
