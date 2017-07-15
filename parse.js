@@ -38,7 +38,7 @@ function parse(text) {
 		}
 	}
 	function isSpace(c) {
-		return c == ' ' || c == '\t' || c == '\n';
+		return c == ' ' || c == '\t' || c == '\n' || c == '\r';
 	}
 };
 module.exports = parse;
