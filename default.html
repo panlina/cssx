@@ -7,29 +7,45 @@
 	<script src=cssx.browser.js></script>
 </head>
 <body>
+	<div></div>
+	<div class=error></div>
 	<div id=d></div>
-	<div id=e></div>
-	<div id=f class=x></div>
 	<style id=s>
 		div {
-			"i": 42
+			"before": ":"
 		}
 
-		div.x {
-			"i": 26,
-			"x": true
+		div.error {
+			"before": "error:",
+			"color": "red"
 		}
 
 		#d {
-			"y": false
+			"font-style": "italic"
 		}
 	</style>
 	<script>
 		var cssx = require('cssx');
 		var sheet = cssx.parse(document.getElementById('s').innerHTML);
 		var elementrule = cssx(sheet)($('body'));
-		for (var id in elementrule)
-			$(elementrule[id].element).text(JSON.stringify(elementrule[id].style));
+		for (var id in elementrule) {
+			var element = elementrule[id].element;
+			var style = elementrule[id].style;
+			$(element).text(JSON.stringify(style));
+			apply(style, element);
+		}
+		function apply(style, element) {
+			for (var name in style) {
+				var value = style[name];
+				switch (name) {
+					case 'before':
+						$(element).prepend(value);
+						break;
+					default:
+						$(element).css(name, value);
+				}
+			}
+		}
 	</script>
 </body>
 </html>
