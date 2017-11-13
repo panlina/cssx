@@ -11,7 +11,7 @@ function cssx(cssx) {
 		var elementrule = {};
 		var id = 0;
 		for (var i in ruleelement)
-			ruleelement[i].element.each(function (j, element) {
+			ruleelement[i].element.forEach(function (element, j) {
 				if (!('$id' in element))
 					elementrule[element.$id = id++] = {
 						element: element,
